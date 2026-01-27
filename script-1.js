@@ -87,24 +87,29 @@
 // print()
 
 
-function greet(){
-    var message="Hello User!"
-    console.log(message)
-}
+// function greet(){
+//     var message="Hello User!"
+//     console.log(message)
+// }
 
-greet()
-// console.log(message)
+// greet()
+// // console.log(message)
 
-debugger
-function first(){
-    second()
-}
+// debugger
+// function first(){
+//     second()
+// }
 
-function second(){
-    third()
-}
+// function second(){
+//     third()
+// }
 
-function third(){
-    console.trace()
-}
-first()
+// function third(){
+//     console.trace()
+// }
+// first()
+
+
+console.log("first line")
+setTimeout(()=>{console.log("line after 2 seconds")},2000)
+console.log("second line")
