@@ -194,28 +194,41 @@
 // },2000);   //homework line
 
 
-function finishHomework(callback) {
-    console.log("Starting Homework...")
+// function finishHomework(callback) {
+//     console.log("Starting Homework...")
+//     setTimeout(() => {
+//         console.log("Homework Done!");
+//         callback();
+//     }, 2000);
+// }
+
+// function eatDinner(callback) {
+//     console.log("Starting Dinner...")
+//     setTimeout(() => {
+//         console.log("Dinner Done!");
+//         callback();
+//     }, 1500);
+// }
+
+// function goToPlayground() {
+//     console.log("Going to Playground!");
+// }
+
+// finishHomework(() => {
+//     eatDinner(() => {
+//         goToPlayground();
+//     });
+// });
+
+//promise fn
+const p=new Promise((res,rej) => {
+    let done=false
     setTimeout(() => {
-        console.log("Homework Done!");
-        callback();
-    }, 2000);
-}
-
-function eatDinner(callback) {
-    console.log("Starting Dinner...")
-    setTimeout(() => {
-        console.log("Dinner Done!");
-        callback();
-    }, 1500);
-}
-
-function goToPlayground() {
-    console.log("Going to Playground!");
-}
-
-finishHomework(() => {
-    eatDinner(() => {
-        goToPlayground();
-    });
-});
+        if(done){
+            res("Work is Done!")
+        }else{
+            rej("Work is not done:(")
+        }
+    },5000)
+})
+console.log(p)
