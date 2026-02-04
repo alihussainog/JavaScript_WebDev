@@ -221,23 +221,85 @@
 // });
 
 //promise fn
-const p=new Promise((res,rej) => {
-    let done=false
-    setTimeout(() => {
-        if(done){
-            res("Work is Done!")
-        }else{
-            rej("Work is not done:(")
-        }
-    },5000)
-})
+// const p=new Promise((res,rej) => {
+//     let done=false
+//     setTimeout(() => {
+//         if(done){
+//             res("Work is Done!")
+//         }else{
+//             rej("Work is not done:(")
+//         }
+//     },5000)
+// })
 
-p.then((msg)=>{
-    console.log(msg)
+// p.then((msg)=>{
+//     console.log(msg)
+// }).catch((err)=>{
+//     console.log(err)
+// }).finally(()=>{
+//     console.log("Finally Block!")
+// }) 
+
+// console.log(p)
+
+
+//promise chaining
+function doHomework() {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            let homeworkDone = true;
+            if (homeworkDone) {
+                console.log("Homework is Done!");
+                resolve("Homework Complete:)");
+            } else {
+                reject("Homework not done:(");
+            }
+        }, 3000);
+    })
+}
+
+function eatDinner() {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            let dinnerEaten = true;
+            if (dinnerEaten) {
+                console.log("Dinner is eaten!");
+                resolve("Dinner Complete:)");
+            } else {
+                reject("Dinner not done:(");
+            }
+        }, 2000);
+    })
+}
+
+
+function goToPlayground() {
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            let permission = true;
+            if (permission) {
+                console.log("Went to Playground!");
+                resolve("Playground time:)");
+            } else {
+                reject("Not allowed to go out:(");
+            }
+        }, 3000);
+    })
+}
+
+doHomework().then((msg)=>{
+    console.log(msg);
+    return eatDinner();
+}).then((msg)=>{
+    console.log(msg);
+    return goToPlayground();
+}).then((msg)=>{
+    console.log(msg);
 }).catch((err)=>{
-    console.log(err)
+    console.log(err);
 }).finally(()=>{
-    console.log("Finally Block!")
-}) 
+    console.log("Go to sleep");
+});
 
-console.log(p)
+
+
