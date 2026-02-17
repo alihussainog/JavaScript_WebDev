@@ -163,7 +163,7 @@
 //     name.value=""
 // })
 
-//callback function
+// callback function
 
 // function greet(){
 //     console.log("Hello!")
@@ -220,7 +220,7 @@
 //     });
 // });
 
-//promise fn
+// promise fn
 // const p=new Promise((res,rej) => {
 //     let done=false
 //     setTimeout(() => {
@@ -243,63 +243,141 @@
 // console.log(p)
 
 
-//promise chaining
-function doHomework() {
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            let homeworkDone = true;
-            if (homeworkDone) {
-                console.log("Homework is Done!");
-                resolve("Homework Complete:)");
-            } else {
-                reject("Homework not done:(");
-            }
-        }, 3000);
+// promise chaining
+// function doHomework() {
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             let homeworkDone = true;
+//             if (homeworkDone) {
+//                 console.log("Homework is Done!");
+//                 resolve("Homework Complete:)");
+//             } else {
+//                 reject("Homework not done:(");
+//             }
+//         }, 3000);
+//     })
+// }
+
+// function eatDinner() {
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             let dinnerEaten = true;
+//             if (dinnerEaten) {
+//                 console.log("Dinner is eaten!");
+//                 resolve("Dinner Complete:)");
+//             } else {
+//                 reject("Dinner not done:(");
+//             }
+//         }, 2000);
+//     })
+// }
+
+
+// function goToPlayground() {
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             let permission = true;
+//             if (permission) {
+//                 console.log("Went to Playground!");
+//                 resolve("Playground time:)");
+//             } else {
+//                 reject("Not allowed to go out:(");
+//             }
+//         }, 3000);
+//     })
+// }
+
+// doHomework().then((msg)=>{
+//     console.log(msg);
+//     return eatDinner();
+// }).then((msg)=>{
+//     console.log(msg);
+//     return goToPlayground();
+// }).then((msg)=>{
+//     console.log(msg);
+// }).catch((err)=>{
+//     console.log(err);
+// }).finally(()=>{
+//     console.log("Go to sleep");
+// });
+
+// async & await function ------>
+// function orderFood(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//             console.log("Food Ordered!")
+//             res("Food has been Ordered..")
+//         },2000)
+//     })
+// }
+
+// function prepareFood(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//             console.log("Food Prepared")
+//             res()
+//         },2000)
+//     })
+// }
+
+// function deliverFood(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//             console.log("Food Delivered:)")
+//             res()
+//         },2000)
+//     })
+// }
+
+// async function order(){
+//     const data=await orderFood()
+//     console.log(data)
+//     await prepareFood()
+//     await deliverFood()
+// }
+
+// order()
+
+// diff bw await & then fn ---->
+// orderFood().then((data)=>{
+//     return prepareFood()
+// }).then((data)=>{l
+//     return deliverFood()
+// }).then((data)=>{
+
+// }).catch((err)=>{
+//     console.log("Something went wrong:(")
+// })
+
+//Error Handling ---->
+// console.log("First Line")
+// try{
+//     // let sample = 234
+//     // console.log(sample)
+//     // console.log("Line after sample")
+//     let age = 16
+//     if(age<18){
+//         throw new Error("You are not eligible to vote!") 
+//         // console.log("line after throw")
+//         //
+//         //
+//         //
+//         //
+//     }
+//     ///
+
+// }catch(e){
+//     console.error(e)
+// }
+// console.log("Last Line")
+
+//Fetch ----->
+async function getData(){
+    const response=await fetch("https://dummyjson.com/products")
+    const data=await response.json()
+    //console.log(data.products[0].title)
+    data.products.forEach((product)=>{
+        console.log(product.title)
     })
 }
-
-function eatDinner() {
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            let dinnerEaten = true;
-            if (dinnerEaten) {
-                console.log("Dinner is eaten!");
-                resolve("Dinner Complete:)");
-            } else {
-                reject("Dinner not done:(");
-            }
-        }, 2000);
-    })
-}
-
-
-function goToPlayground() {
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            let permission = true;
-            if (permission) {
-                console.log("Went to Playground!");
-                resolve("Playground time:)");
-            } else {
-                reject("Not allowed to go out:(");
-            }
-        }, 3000);
-    })
-}
-
-doHomework().then((msg)=>{
-    console.log(msg);
-    return eatDinner();
-}).then((msg)=>{
-    console.log(msg);
-    return goToPlayground();
-}).then((msg)=>{
-    console.log(msg);
-}).catch((err)=>{
-    console.log(err);
-}).finally(()=>{
-    console.log("Go to sleep");
-});
-
-
-
+getData()
