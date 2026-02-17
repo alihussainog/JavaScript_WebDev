@@ -372,12 +372,20 @@
 // console.log("Last Line")
 
 //Fetch ----->
-// async function getData(){
-//     const response=await fetch("https://dummyjson.com/products")
-//     const data=await response.json()
-//     //console.log(data.products[0].title)
-//     data.products.forEach((product)=>{
-//         console.log(product.title)
-//     })
-// }
-// getData()
+async function getData(){
+    try{
+        const response = await fetch("https://dummyjson.com/products")
+        if(response.ok===false){
+            throw new Error("Something Went Wrong:(")
+        }
+        const data = await response.json()
+        console.log(data)
+        //console.log(data.products[0].title)
+        data.products.forEach((product)=>{
+            console.log(product.title)
+        })
+    }catch(err){
+        console.log(err)
+    }
+}
+getData()
