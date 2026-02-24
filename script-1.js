@@ -389,3 +389,40 @@
 //     }
 // }
 // getData()
+
+
+// document.cookie="name=Alex;expires=Wed; 25 Feb 2025 23:59:59 UTC"
+// document.cookie="age=45;expires=Wed; 25 Feb 2026 23:59:59 UTC"
+
+// console.log(document.cookie) 
+
+// function* generate(){
+//     let index=2501730262
+//     while(true){
+//         yield index
+//         index++
+//     }
+// }
+// const gen=generate()
+// console.log(gen)
+// console.log(gen.next())
+// console.log(gen.next())
+// console.log(gen.next())
+// console.log(gen.next())
+
+
+function add(a){
+    return function(b){
+        return function(c){
+            return a+b+c
+        }
+    }
+}
+
+const first=add(1)
+console.log(first)
+const second=first(2)
+console.log(second)
+console.log(second(3))
+
+console.log(add(1)(2)(3))
