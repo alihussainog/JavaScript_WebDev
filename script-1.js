@@ -20,6 +20,7 @@
 // para[1].style.color="red"
 // console.log(para)
 
+
 // let arr=[23,45,235,56,45,3,2]
 // arr.forEach((ele)=>console.log(ele))
 
@@ -426,3 +427,6 @@ console.log(second)
 console.log(second(3))
 
 console.log(add(1)(2)(3))
+
+
+//hey
