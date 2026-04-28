@@ -412,20 +412,42 @@
 // console.log(gen.next())
 
 
-function add(a){
-    return function(b){
-        return function(c){
-            return a+b+c
-        }
-    }
+// function add(a){
+//     return function(b){
+//         return function(c){
+//             return a+b+c
+//         }
+//     }
+// }
+
+// const first=add(1)
+// console.log(first)
+// const second=first(2)
+// console.log(second)
+// console.log(second(3))
+
+// console.log(add(1)(2)(3))
+
+
+function App() {
+    const[data,setData]=useState("Sample Data")
+    return (
+        <>
+        <Routes>
+            <Route path="/article" element={<Article data={data} />} />
+
+        </Routes>
+        </>
+    )
 }
 
-const first=add(1)
-console.log(first)
-const second=first(2)
-console.log(second)
-console.log(second(3))
-
-console.log(add(1)(2)(3))
+function Menu() {
+    console.log(additon(3,4))
+}
 
 
+function Menu() {
+
+    const navigate=useNavigate()
+    console.log(addition)
+}
