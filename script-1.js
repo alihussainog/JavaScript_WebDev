@@ -451,3 +451,14 @@ function Menu() {
     const navigate=useNavigate()
     console.log(addition)
 }
+
+function Profile() {
+    const {username}=useParams()
+  return (
+    <div>
+        <h1>{username}</h1>
+    </div>
+  )
+}
+
+export default Profile
